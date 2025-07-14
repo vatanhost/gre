@@ -25,7 +25,7 @@ if [[ "$LOCATION" == "1" ]]; then
 
     sudo ip tunnel add vatan-m2 mode gre local $IP_IRAN remote $IP_FOREIGN ttl 255
     sudo ip link set vatan-m2 up
-    sudo ip addr add 132.168.30.2/30 dev AbrDade-m2
+    sudo ip addr add 132.168.30.2/30 dev vatan-m2
    sysctl net.ipv4.ip_forward=1
 iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination 132.168.30.2
 iptables -t nat -A PREROUTING -j DNAT --to-destination 132.168.30.1
